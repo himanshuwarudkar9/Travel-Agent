@@ -7,3 +7,4 @@ python-dotenv
 chromadb>=0.4.22
 pysqlite3-binary
 duckduckgo-search
+crewai-tools
