@@ -6,15 +6,17 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 
 def get_llm():
-    # Get API key from environment variable
     api_key = os.getenv('GOOGLE_API_KEY')
     if not api_key:
         raise ValueError("Google API key not found in environment variables")
     
+    # Configure the genai library
+    genai.configure(api_key=api_key)
+    
     return ChatGoogleGenerativeAI(
         model="gemini-pro",
-        google_api_key=api_key,
-        temperature=0.7
+        temperature=0.7,
+        convert_system_message_to_human=True
     )
 
 
