@@ -6,20 +6,30 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 import google.generativeai as genai  # Added this import at the top
 
+# def get_llm():
+#     api_key = os.getenv('GOOGLE_API_KEY')
+#     if not api_key:
+#         raise ValueError("Google API key not found in environment variables")
+    
+#     # Configure the genai library
+#     genai.configure(api_key=api_key)
+    
+#     return ChatGoogleGenerativeAI(
+#         model="gemini-1.5-flash",
+#         google_api_key=api_key,  # Explicitly pass the API key here
+#         temperature=0.7,
+#         convert_system_message_to_human=True
+#     )
+from crewai import LLM
+
 def get_llm():
-    api_key = os.getenv('GOOGLE_API_KEY')
-    if not api_key:
-        raise ValueError("Google API key not found in environment variables")
-    
-    # Configure the genai library
-    genai.configure(api_key=api_key)
-    
-    return ChatGoogleGenerativeAI(
+    return LLM(
+        provider="google",  # Specify provider explicitly
         model="gemini-1.5-flash",
-        google_api_key=api_key,  # Explicitly pass the API key here
-        temperature=0.7,
-        convert_system_message_to_human=True
+        api_key=os.getenv("GOOGLE_API_KEY"),
+        temperature=0.7
     )
+
 
 # Agents
 guide_expert = Agent(
