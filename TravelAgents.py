@@ -4,6 +4,7 @@ from TravelTools import search_web_tool
 from crewai import LLM
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
+import google.generativeai as genai  # Added this import at the top
 
 def get_llm():
     api_key = os.getenv('GOOGLE_API_KEY')
