@@ -16,10 +16,10 @@ def get_llm():
     
     return ChatGoogleGenerativeAI(
         model="gemini-1.5-flash",
+        google_api_key=api_key,  # Explicitly pass the API key here
         temperature=0.7,
         convert_system_message_to_human=True
     )
-
 
 # Agents
 guide_expert = Agent(
