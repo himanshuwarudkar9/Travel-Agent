@@ -2,14 +2,20 @@ from crewai import Agent
 from TravelTools import search_web_tool
 #from TravelTools import search_web_tool, web_search_tool
 from crewai import LLM
-from langchain_ollama.llms import OllamaLLM
+from langchain_google_genai import ChatGoogleGenerativeAI
+import os
 
-
-# Initialize LLM
-llm = LLM(
-    model="ollama/llama3.2",
-    base_url="http://localhost:11434"
-)
+def get_llm():
+    # Get API key from environment variable
+    api_key = os.getenv('GOOGLE_API_KEY')
+    if not api_key:
+        raise ValueError("Google API key not found in environment variables")
+    
+    return ChatGoogleGenerativeAI(
+        model="gemini-pro",
+        google_api_key=api_key,
+        temperature=0.7
+    )
 
 
 # Agents
@@ -20,7 +26,7 @@ guide_expert = Agent(
     tools=[search_web_tool],
     verbose=True,
     max_iter=5,
-    llm=LLM(model="ollama/llama3.2",base_url="http://localhost:11434"),
+    llm=get_llm(),
     allow_delegation=False,
 )
 
@@ -31,7 +37,7 @@ location_expert = Agent(
     tools=[search_web_tool],  
     verbose=True,
     max_iter=5,
-    llm= LLM(model="ollama/llama3.2",base_url="http://localhost:11434"),   # ChatOpenAI(temperature=0, model="gpt-4o-mini"),
+    llm= get_llm(),   # ChatOpenAI(temperature=0, model="gpt-4o-mini"),
     allow_delegation=False,
 )
 
@@ -42,6 +48,6 @@ planner_expert = Agent(
     tools=[search_web_tool],
     verbose=True,
     max_iter=5,
-    llm=LLM(model="ollama/llama3.2",base_url="http://localhost:11434"),
+    llm=get_llm(),
     allow_delegation=False,
 )
