@@ -25,7 +25,7 @@ from crewai import LLM
 def get_llm():
     return LLM(
         provider="google",  # Specify provider explicitly
-        model="gemini-2.0-flash",
+        model="gemini-pro",
         api_key=os.getenv("GOOGLE_API_KEY"),
         temperature=0.7
     )
