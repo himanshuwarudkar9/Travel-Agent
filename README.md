@@ -34,8 +34,8 @@ An intelligent travel planning application that uses AI to create personalized t
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/AI-Powered-Trip-Planner.git
-cd AI-Powered-Trip-Planner/streamlitapp
+git clone git@github.com:himanshuwarudkar9/Travel-Agent.git
+cd AI-Powered-Trip-Planner
 ```
 
 2. Install dependencies:
