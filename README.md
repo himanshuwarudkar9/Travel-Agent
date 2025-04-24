@@ -67,7 +67,7 @@ streamlit run my_app.py
 ## Project Structure 📂
 
 ```
-streamlitapp/
+AI-Powered-Trip-Planner
 ├── my_app.py              # Main Streamlit application
 ├── TravelAgents.py        # AI agent definitions
 ├── TravelTasks.py         # Task definitions for AI agents
