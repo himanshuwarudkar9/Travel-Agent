@@ -93,10 +93,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Built with Streamlit
 - Powered by CrewAI
-- Background image from [PNGTree](https://pngtree.com/)
 
-## Contact 📧
 
-Your Name - [your.email@example.com]
-Project Link: [https://github.com/yourusername/AI-Powered-Trip-Planner]
 
