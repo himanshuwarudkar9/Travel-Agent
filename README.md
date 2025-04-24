@@ -13,6 +13,22 @@ An intelligent travel planning application that uses AI to create personalized t
   - Accommodation options and budget planning 💰
   - Local food recommendations 🍕
   - Transportation and visa requirements 🚆
+    
+## Prerequisites 🔧
+
+1. **Ollama Installation for Windows**:
+   - Download Ollama for Windows from [https://ollama.ai/download](https://ollama.ai/download)
+   - Install the Windows executable
+   - Open Command Prompt as Administrator and run:
+   ```batch
+   ollama pull llama3.2
+   ```
+
+2. **Verify Ollama Installation**:
+   ```batch
+   # Check if Ollama is running
+   netstat -ano | findstr "11434"
+   ```
 
 ## Installation 🛠️
 
